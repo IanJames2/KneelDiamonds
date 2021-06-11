@@ -1,11 +1,12 @@
-import { getMetals } from "./database.js"
+import { getMetals, setMetal } from "./database.js"
 
 document.addEventListener(
     "change",
     (e) => {
         if (e.target.name === "metal") {
         const metalId = e.target.value
-            setMetalId(parseInt(metalId))
+            // window.alert(`User chose metal ${metalId}`)
+            setMetal(parseInt(metalId))
         }
     }
 )

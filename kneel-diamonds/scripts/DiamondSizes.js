@@ -1,11 +1,12 @@
-import { getSizes } from "./database.js"
+import { getSizes, setSize } from "./database.js"
 
 document.addEventListener(
     "change",
     (e) => {
         if (e.target.name === "size") {
         const sizeId = e.target.value
-            setSizeId(parseInt(sizeId))
+            // window.alert(`User chose size ${sizeId}`)
+            setSize(parseInt(sizeId))
         }
     }
 )

@@ -4,7 +4,8 @@ document.addEventListener(
     "change",
     (e) => {
         if (e.target.name === "size") {
-        const sizeId = e.target.value
+        // const sizeId = e.target.value
+        const [, sizeId] = e.target.value.split("--")
             // window.alert(`User chose size ${sizeId}`)
             setSize(parseInt(sizeId))
         }

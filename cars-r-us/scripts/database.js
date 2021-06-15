@@ -25,7 +25,10 @@ const database = {
     ],
     cars: [
         {id: 1, paintColorsid: 2, interiorsid: 3, technologiesid: 4, wheelsid: 1, timestamp: 1614659931693}
-    ]
+    ],
+    carOffTheLot: {
+
+    }
 }
 
 export const getPaintColors = () => {
@@ -36,8 +39,8 @@ export const getInteriors = () => {
     return database.interiors.map(interiors => ({...interiors}))
 }
 
-export const getTechnologiers = () => {
-    return database.technologiers.map(technologiers => ({...technologiers}))
+export const getTechnologies = () => {
+    return database.technologies.map(technologies => ({...technologies}))
 }
 
 export const getWheels = () => {
@@ -48,20 +51,20 @@ export const getCars = () => {
     return database.cars.map(cars => ({...cars}))
 }
 
-export const setPaintColors = () => {
-    return database.paintColors
+export const setPaintColor = () => {
+    return database.carOffTheLot.paintColorsid = id
 }
 
-export const setInteriors = () => {
-    return database.
+export const setInterior = () => {
+    return database.carOffTheLot.interiorsid = id
 }
 
-export const setTechnologiers = () => {
-    return database.
+export const setTechnology = () => {
+    return database.carOffTheLot.technologiesid = id
 }
 
-export const setWheels = () => {
-    return database.
+export const setWheel = () => {
+    return database.carOffTheLot.wheelsid = id
 }
 
 

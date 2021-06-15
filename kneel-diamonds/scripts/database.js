@@ -54,13 +54,13 @@ export const getCustomOrders = () => {
 }
 
 export const setStyle = (id) => {
-    database.orderBuilder.metalId = id
+    database.orderBuilder.styleId = id
 }
 export const setSize = (id) => {
     database.orderBuilder.sizeId = id
 }
 export const setMetal = (id) => {
-    database.orderBuilder.styleId = id
+    database.orderBuilder.metalId = id
 }
 
 export const addCustomOrder = () => {

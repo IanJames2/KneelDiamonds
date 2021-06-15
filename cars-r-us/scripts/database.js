@@ -24,7 +24,7 @@ const database = {
         {id: 4, wheels: "Black Leather18-inch Pair Spoke Black", price: 300}
     ],
     cars: [
-        {id: 1, paintColorsid: 2, interiorsid: 3, technologiesid: 4, wheelsid: 1, timestamp: 1614659931693}
+        {id: 1, paintColorsId: 2, interiorsId: 3, technologiesId: 4, wheelsId: 1, timestamp: 1614659931693}
     ],
     carOffTheLot: {
 
@@ -44,29 +44,44 @@ export const getTechnologies = () => {
 }
 
 export const getWheels = () => {
-    return database.Wheels.map(wheels => ({...wheels}))
+    return database.wheels.map(wheels => ({...wheels}))
 }
 
 export const getCars = () => {
     return database.cars.map(cars => ({...cars}))
 }
 
-export const setPaintColor = () => {
-    return database.carOffTheLot.paintColorsid = id
+export const setPaintColor = (id) => {
+    return database.carOffTheLot.paintColorsId = id
 }
 
-export const setInterior = () => {
-    return database.carOffTheLot.interiorsid = id
+export const setInterior = (id) => {
+    database.carOffTheLot.interiorsId = id
 }
 
-export const setTechnology = () => {
-    return database.carOffTheLot.technologiesid = id
+export const setTechnology = (id) => {
+    database.carOffTheLot.technologiesId = id
 }
 
-export const setWheel = () => {
-    return database.carOffTheLot.wheelsid = id
+export const setWheel = (id) => {
+    database.carOffTheLot.wheelsId = id
 }
 
+export const addCar = () => {
+    // Copy the current state of user choices
+    const newCar = {...database.carOffTheLot}
+    // Add a new primary key to the object
+    const lastIndex = database.cars.length - 1
+    newCar.id = database.cars[lastIndex].id + 1
+    // Add a timestamp to the order
+    newCar.timestamp = Date.now()
+    // Add the new order object to custom orders state
+    database.cars.push(newCar)
+    // Reset the temporary state for user choices
+    database.carOffTheLot = {}
+    // Broadcast a notification that permanent state has changed
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
 
 
 

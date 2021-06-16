@@ -1,4 +1,4 @@
-import { getCars, getWheels } from "./database.js"
+import { getCars, getWheels, getPaintColors, getInteriors, getTechnologies } from "./database.js"
 
 const buildCarListItem = (car) => {
     const wheels = getWheels()
@@ -10,8 +10,41 @@ const buildCarListItem = (car) => {
         }
     }
    )
+
+    const paintColors = getPaintColors()
+    // Remember that the function you pass to find() must return true/false
+   const foundPaint = paintColors.find(
+      (paint) => {
+        if (paint.id === car.paintColorsId){
+        return true    
+        }
+    }
+   )
    
-   const totalCost = foundWheel.price
+    const interiors = getInteriors()
+    // Remember that the function you pass to find() must return true/false
+   const foundInterior = interiors.find(
+      (interior) => {
+        if (interior.id === car.interiorsId){
+        return true    
+        }
+    }
+   )
+
+    const technologies = getTechnologies()
+    // Remember that the function you pass to find() must return true/false
+   const foundTech = technologies.find(
+      (tech) => {
+        if (tech.id === car.technologiesId){
+        return true    
+        }
+    }
+   )
+
+   const totalCost = foundWheel.price + foundPaint.price + foundInterior.price + foundTech.price
+
+
+
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",
        currency: "USD"
@@ -37,4 +70,4 @@ export const Cars = () => {
     html += "</ul>"
 
     return html
-}
+}   

@@ -4,8 +4,8 @@ document.addEventListener(
     "change",
     (e) => {
         if (e.target.name === "wheel") {
-        const [, wheelId] = e.target.value.split("--")
             // window.alert(`User chose tire set ${wheelId}`)
+            const wheelId = e.target.value
             setWheel(parseInt(wheelId))
         }
     }

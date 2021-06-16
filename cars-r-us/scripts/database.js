@@ -52,7 +52,7 @@ export const getCars = () => {
 }
 
 export const setPaintColor = (id) => {
-    return database.carOffTheLot.paintColorsId = id
+    database.carOffTheLot.paintColorsId = id
 }
 
 export const setInterior = (id) => {

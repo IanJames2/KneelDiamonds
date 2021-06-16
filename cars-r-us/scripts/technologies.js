@@ -4,7 +4,7 @@ document.addEventListener(
     "change",
     (e) => {
         if (e.target.name === "technology") {
-        const [, technologyId] = e.target.value.split("--")
+        const technologyId = e.target.value
             // window.alert(`User chose technology ${technologyId}`)
             setTechnology(parseInt(technologyId))
         }
